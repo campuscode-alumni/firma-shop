@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   before_validation :set_company
 
+  validates :name, presence: true
+
   private
 
   def set_company
