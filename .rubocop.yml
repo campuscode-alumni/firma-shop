@@ -6,6 +6,7 @@ Rails:
  Enabled: true
 
 AllCops:
+ UseCache: false
  TargetRubyVersion: 2.6
  Include:
    - '**/Rakefile'
