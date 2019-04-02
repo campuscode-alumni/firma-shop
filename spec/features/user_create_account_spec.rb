@@ -33,5 +33,4 @@ feature 'User create account' do
     expect(Company.find_by(domain: company_domain)).to be_present
     expect(User.find_by(email: email).company.domain).to eq(company_domain)
   end
-
 end

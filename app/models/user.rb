@@ -24,5 +24,4 @@ class User < ApplicationRecord
   def user_domain
     email.split('@').last
   end
-
 end
