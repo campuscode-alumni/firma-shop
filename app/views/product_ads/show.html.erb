@@ -1,6 +1,6 @@
 <h1><%=@product_ad.title%></h1>
 <p><%=@product_ad.description%></p>
-<p><%=@product_ad.price%></p>
+<p><%=number_to_currency(@product_ad.price)%></p>
 <p><%=@product_ad.usage_time%> meses</p>
 <p>Garantia: <%= @product_ad.warranty? ? 'Sim': 'Não' %></p>
 <p>Expiração do anúncio: <%=@product_ad.expiration_time%> dias</p>

@@ -8,7 +8,7 @@ class ProductAdsController < ApplicationController
     @sales_ad = SalesAd.new(sales_ad_params)
     @sales_ad.user_id = @user
     @sales_ad.save!
-    flash[:notice] = "Anúncio Criado!"
+    flash[:notice] = 'Anúncio Criado!'
     redirect_to product_ad_path(@sales_ad)
   end
 
@@ -16,9 +16,11 @@ class ProductAdsController < ApplicationController
     @product_ad = ProductAd.find(params[:id])
   end
 
-private
+  private
 
   def sales_ad_params
-    params.require(:sales_ad).permit(:title, :description, :price, :usage_time, :warranty, :expiration_time, :accepted_rule, :photos, :user_id)
+    params.require(:sales_ad).permit(:title, :description, :price, :usage_time,
+                                     :warranty, :expiration_time,
+                                     :accepted_rule, :photos, :user_id)
   end
 end
