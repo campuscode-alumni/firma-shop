@@ -5,7 +5,7 @@ feature 'User create account' do
     email = 'edu.costa@campuscode.com'
     visit root_path
 
-    click_on 'Cadastrar-se'
+    click_on 'Inscrever-se'
     fill_in 'Nome', with: 'Eduardo Costa'
     fill_in 'Email', with: email
     fill_in 'Senha', with: '123456'
@@ -20,9 +20,8 @@ feature 'User create account' do
   scenario 'and save company' do
     company_domain = 'campuscode.com'
     email = "edu.costa@#{company_domain}"
-    visit root_path
+    visit new_user_registration_path
 
-    click_on 'Cadastrar-se'
     fill_in 'Nome', with: 'Eduardo Costa'
     fill_in 'Email', with: email
     fill_in 'Senha', with: '123456'
@@ -36,9 +35,8 @@ feature 'User create account' do
 
   scenario 'without name' do
     email = 'edu.costa@campuscode.com'
-    visit root_path
+    visit new_user_registration_path
 
-    click_on 'Cadastrar-se'
     fill_in 'Nome', with: ''
     fill_in 'Email', with: email
     fill_in 'Senha', with: '123456'
