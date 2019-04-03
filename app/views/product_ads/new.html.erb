@@ -1,0 +1,20 @@
+ <a id='sales_ad'>Quero vender um produto</a> 
+
+<%= simple_form_for @sales_ad, url: sales_ad_path, html: {id: 'sales_form'} do |f|%>
+  <%= f.input :title %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.input :price, as: :decimal %>
+  <%= f.input :usage_time, collection: 0..60 %>
+  <%= f.input :warranty %>
+  <%= f.input :expiration_time, as: :integer %>
+  <%= f.input :accepted_rule %>
+  <%= f.submit 'Criar Anúncio' %>
+<% end %>
+
+
+ <script>
+  $('#sales_ad').click(function(){
+    $('#sales_form').removeClass('invisible')
+  });
+ </script>

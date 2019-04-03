@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      product_ad: Anúncios
+    attributes:
+      product_ad:
+        title: 'Título'
+        description: 'Descrição'
+        photos: 'Fotos'
+        price: 'Preço'
+        usage_time: 'Tempo de uso'
+        warranty: 'Garantia'
+        expiration_time: 'Duração do anúncio(dias)'
+        accepted_rule: 'Li e concordo com as regras da plataforma.'

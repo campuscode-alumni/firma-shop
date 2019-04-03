@@ -1,0 +1,2 @@
+class SalesAd < ProductAd
+end

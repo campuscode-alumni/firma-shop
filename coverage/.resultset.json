@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/campuscode03/workspace/firma-shop/app/models/user.rb": [
+      "/Users/campuscode04/firma-shop/app/models/user.rb": [
         1,
         null,
         null,
@@ -13,60 +13,95 @@
         1,
         null,
         1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
         null,
         1,
         2,
         null,
-        null,
-        1,
-        2,
-        2,
-        2,
-        null,
-        null,
-        1,
-        4,
-        null,
-        null,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/models/application_record.rb": [
+      "/Users/campuscode04/firma-shop/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/helpers/application_helper.rb": [
+      "/Users/campuscode04/firma-shop/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/controllers/home_controller.rb": [
+      "/Users/campuscode04/firma-shop/app/models/company.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/controllers/application_controller.rb": [
+      "/Users/campuscode04/firma-shop/app/controllers/home_controller.rb": [
+        1,
+        1,
+        null
+      ],
+      "/Users/campuscode04/firma-shop/app/controllers/application_controller.rb": [
         1,
         1,
         null,
         1,
         null,
         1,
-        4,
+        0,
         null,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/models/company.rb": [
+      "/Users/campuscode04/firma-shop/app/controllers/product_ads_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/campuscode04/firma-shop/app/models/sales_ad.rb": [
+        1,
+        null
+      ],
+      "/Users/campuscode04/firma-shop/app/models/product_ad.rb": [
         1,
         1,
         null
       ],
-      "/Users/campuscode03/workspace/firma-shop/app/mailers/application_mailer.rb": [
+      "/Users/campuscode04/firma-shop/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ]
     },
-    "timestamp": 1554166833
+    "timestamp": 1554253587
   }
 }
