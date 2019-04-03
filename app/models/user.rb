@@ -8,7 +8,26 @@ class User < ApplicationRecord
 
   before_validation :set_company
 
+  validates :name, presence: true
+
+  def expiration_date
+    self.confirmed_at + 90.day
+  end
+
+  def active?
+    expiration_date > Time.now
+  end
+
   private
+
+  def after_database_authentication
+    if ! active?
+      self.update(confirmation_token: nil, confirmed_at: nil)
+    end
+  end
+
+  def after_confirmation
+  end
 
   def set_company
     self.company = find_or_create_company
