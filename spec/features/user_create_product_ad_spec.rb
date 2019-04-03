@@ -19,7 +19,7 @@ feature 'User create a sales ad' do
       fill_in 'Preço', with: '100.99'
       select '10', from: 'Tempo de uso'
       check 'Garantia'
-      fill_in 'Duração do anúncio(dias)', with: '10'
+      select '15 Dias', from: 'Duração do anúncio'
       check 'Li e concordo com as regras da plataforma.'
       click_on 'Criar Anúncio'
     end
@@ -31,6 +31,38 @@ feature 'User create a sales ad' do
     expect(page).to have_content 'R$ 100,99'
     expect(page).to have_content '10 meses'
     expect(page).to have_content 'Garantia: Sim'
-    expect(page).to have_content 'Expiração do anúncio: 10 dias'
+    expect(page).to have_content 'Expiração do anúncio: 15 dias'
   end
+
+  # scenario 'and any field could be blank' do
+  #   # arrange
+  #   user = create(:user)
+  #   user.confirm
+  #   # act
+  #   login_as user, scope: :user
+  #   visit root_path
+  #   click_on 'Inserir Anúncio'
+
+  #   within '#sales_form' do
+  #     fill_in 'Título', with: ''
+  #     fill_in 'Descrição', with: ''
+  #     fill_in 'Preço', with: ''
+  #     select '10', from: 'Tempo de uso'
+  #     check 'Garantia'
+  #     fill_in 'Duração do anúncio(dias)', with: '10'
+  #     check 'Li e concordo com as regras da plataforma.'
+  #     click_on 'Criar Anúncio'
+  #   end
+  #   # assert
+  #   expect(ProductAd.last.type).to eq 'SalesAd'
+  #   expect(page).to have_content 'Anúncio Criado!'
+  #   expect(page).to have_content 'Bola Quadrada'
+  #   expect(page).to have_content 'Bola Quadrada pouco tempo de uso, única!'
+  #   expect(page).to have_content 'R$ 100,99'
+  #   expect(page).to have_content '10 meses'
+  #   expect(page).to have_content 'Garantia: Sim'
+  #   expect(page).to have_content 'Expiração do anúncio: 10 dias'
+      
+  # end
+
 end
