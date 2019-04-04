@@ -48,7 +48,6 @@ feature 'User create a sales ad' do
       fill_in 'Descrição', with: ''
       fill_in 'Preço', with: ''
       check 'Garantia'
-      check 'Li e concordo com as regras da plataforma.'
       click_on 'Criar Anúncio'
     end
     # assert

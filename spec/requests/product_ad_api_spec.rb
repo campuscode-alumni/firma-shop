@@ -6,13 +6,13 @@ RSpec.describe 'Product Ads API', type: :request do
       user1 = create(:user, email: 'user1@email.com')
       user2 = create(:user, email: 'user2@email.com')
 
-      product_ad = create(:product_ad, title: 'Anuncio 1', user_id: user1)
-      product_ad = create(:product_ad, title: 'Anuncio 2', user_id: user2)
+      product_ad = create(:sales_ad, title: 'Anuncio 1', user: user1)
+      product_ad = create(:sales_ad, title: 'Anuncio 2', user: user2)
 
       get '/api/v1/product_ads'
 
       expect(response.status).to eq 200
-      # expect(responde).to have_http_status(:success)
+      expect(response).to have_http_status(:success)
       expect(response.body).to include 'Anuncio 1'
       expect(response.body).to include 'Anuncio 2'
 
