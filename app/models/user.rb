@@ -10,10 +10,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  def expiration_date
-    confirmed_at + 90.days
-  end
-
   def active?
     expiration_date > Time.zone.now
   end
@@ -24,8 +20,9 @@ class User < ApplicationRecord
 
   private
 
-  # def after_confirmation
-  # end
+  def after_confirmation
+    update(expiration_date: confirmed_at + 90.days)
+  end
 
   def set_company
     self.company = find_or_create_company
