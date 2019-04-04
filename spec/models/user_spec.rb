@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
       it 'should have an expiration date' do
         user.confirm
-        expect(user.expiration_date).to eq(Time.zone.today + 90.days)
+        expect(user.expiration_date.to_date).to eq(Date.today + 90.days)
       end
 
       it 'shold be active status' do
