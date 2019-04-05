@@ -12,7 +12,7 @@ class SalesAdsController < ApplicationController
   end
 
   def show
-    @product_ad = ProductAd.find(params[:id])
+    @sales_ad = ProductAd.find(params[:id])
   end
 
   private

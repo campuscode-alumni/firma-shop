@@ -1,9 +1,9 @@
-<h1><%=@product_ad.title%></h1>
-<p><%=@product_ad.description%></p>
-<p><%=number_to_currency(@product_ad.price)%></p>
-<p><%=@product_ad.usage_time%> meses</p>
-<p>Garantia: <%= @product_ad.warranty? ? 'Sim': 'Não' %></p>
-<p>Expiração do anúncio: <%=@product_ad.expiration_time%> dias</p>
-<p><%=@product_ad.description%></p>
+<h1><%=@sales_ad.title%></h1>
+<p><%=@sales_ad.description%></p>
+<p><%=number_to_currency(@sales_ad.price)%></p>
+<p><%=@sales_ad.usage_time%> meses</p>
+<p>Garantia: <%= @sales_ad.warranty? ? 'Sim': 'Não' %></p>
+<p>Expiração do anúncio: <%=@sales_ad.expiration_time%> dias</p>
+<p><%=@sales_ad.description%></p>
 
-<p><%= link_to 'Tenho interesse', nil %></p>
+<p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
