@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :product_ad do
+  factory :sales_ad do
     title { 'Bola Quadrada' }
     description { 'Incrível bola quadrada!' }
     price { '9.99' }
