@@ -13,7 +13,6 @@ class SalesAdsController < ApplicationController
       flash[:notice] = 'Não foi possível criar o anúncio'
       render :new
     end
-
   end
 
   def show

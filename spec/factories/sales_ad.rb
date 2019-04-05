@@ -7,6 +7,6 @@ FactoryBot.define do
     warranty { true }
     expiration_time { 30 }
     accepted_rule { true }
-    user 
+    user
   end
 end

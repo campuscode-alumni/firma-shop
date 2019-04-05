@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Users API' do
   describe 'list users' do
     it 'should list all users' do
-      first_user = create(:user, email: 'fatima@ig.com', name: 'Fatima')
-      second_user = create(:user, email: 'joao@uol.com.br', name: 'João')
+      create(:user, email: 'fatima@ig.com', name: 'Fatima')
+      create(:user, email: 'joao@uol.com.br', name: 'João')
 
       # chamada p/ API
       get '/api/v1/users'
@@ -19,9 +19,9 @@ RSpec.describe 'Users API' do
 
   describe 'delete an users' do
     it 'should delete an specify user' do
-      
       delete '/api/v1/users/999'
 
+      # expectativas
       expect(response.status).to eq 404
       expect(response).to have_http_status(:not_found)
       expect(response.body).to include 'User #999 does exist'

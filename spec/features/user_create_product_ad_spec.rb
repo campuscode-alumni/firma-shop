@@ -52,7 +52,5 @@ feature 'User create a sales ad' do
     end
     # assert
     expect(page).to have_content('Não foi possível criar o anúncio')
-      
   end
-
 end

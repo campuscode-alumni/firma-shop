@@ -19,12 +19,16 @@ AllCops:
    - 'config/**/*'
    - 'script/**/*'
    - 'spec/rails_helper.rb'
+   - 'app/channels/**/*'
 
 Documentation:
  Enabled: false
 
 Style/FrozenStringLiteralComment:
  Enabled: false
+
+Style/ClassAndModuleChildren:
+ EnforcedStyle: compact
 
 Metrics/BlockLength:
  ExcludedMethods: ['describe', 'context', 'feature', 'scenario', 'let']
