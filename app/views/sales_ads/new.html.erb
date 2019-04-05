@@ -1,6 +1,6 @@
  <a id='sales_ad'>Quero vender um produto</a> 
 
-<%= simple_form_for @sales_ad, url: sales_ad_path, html: {id: 'sales_form'} do |f|%>
+<%= simple_form_for @sales_ad, html: {id: 'sales_form'} do |f|%>
   <%= f.input :title %>
   <%= f.input :description, as: :text %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>

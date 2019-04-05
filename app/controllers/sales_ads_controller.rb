@@ -1,15 +1,14 @@
-class ProductAdsController < ApplicationController
+class SalesAdsController < ApplicationController
   def new
     @sales_ad = SalesAd.new
   end
 
-  def create_sales_ad
-    @user = current_user
+  def create
     @sales_ad = SalesAd.new(sales_ad_params)
-    @sales_ad.user = @user
+    @sales_ad.user = current_user
     if @sales_ad.save
       flash[:notice] = 'Anúncio Criado!'
-      redirect_to product_ad_path(@sales_ad)
+      redirect_to @sales_ad
     else
       flash[:notice] = 'Não foi possível criar o anúncio'
       render :new
@@ -18,7 +17,7 @@ class ProductAdsController < ApplicationController
   end
 
   def show
-    @product_ad = ProductAd.find(params[:id])
+    @product_ad = SalesAd.find(params[:id])
   end
 
   private

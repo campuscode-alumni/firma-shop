@@ -12,7 +12,7 @@
   <body>
     <% if user_signed_in? %>
       <%= link_to 'Sair', destroy_user_session_path, method: :delete %>
-      <%= link_to 'Inserir Anúncio', new_product_ad_path %>
+      <%= link_to 'Inserir Anúncio', new_sales_ad_path %>
     <% end %>
     <% if notice %>
       <div class="alert alert-success" role="alert">
