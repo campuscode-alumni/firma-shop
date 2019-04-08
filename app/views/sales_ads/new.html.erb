@@ -5,9 +5,9 @@
   <%= f.input :description, as: :text %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :price, as: :decimal %>
-  <%= f.input :usage_time, collection: 0..60 %>
+  <%= f.input :usage_time, collection: 0..60, selected: 0 %>
   <%= f.input :warranty %>
-  <%= f.input :expiration_time, as: :integer %>
+  <%= f.input :expiration_time, collection: [[15, '15 Dias'], [30, '30 Dias'], [60, '60 Dias'], [90, '90 Dias']], label_method: :second, value_method: :first, selected: 15 %>
   <%= f.input :accepted_rule %>
   <%= f.submit 'Criar Anúncio' %>
 <% end %>

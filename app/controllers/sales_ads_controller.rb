@@ -6,9 +6,14 @@ class SalesAdsController < ApplicationController
   def create
     @sales_ad = SalesAd.new(sales_ad_params)
     @sales_ad.user = current_user
-    @sales_ad.save!
-    flash[:notice] = 'Anúncio Criado!'
-    redirect_to @sales_ad
+
+    if @sales_ad.save
+      flash[:notice] = 'Anúncio Criado!'
+      redirect_to @sales_ad
+    else
+      flash[:notice] = 'Não foi possível criar o anúncio'
+      render :new
+    end
   end
 
   def show

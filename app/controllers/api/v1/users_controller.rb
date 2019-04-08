@@ -1,13 +1,16 @@
 class Api::V1::UsersController < Api::V1::ApplicationController
   def index
     @users = User.all
-    render status: 200, json: @users
+    render status: :ok, json: @users
   end
 
   def destroy
     @user = User.find_by(id: params[:id])
-    return render status: 404, json: "User ##{params[:id]} does exist" unless @user
-    @user.destroy
-    render status: 200, json: 'ok'
+    if @user
+      @user.destroy
+      render status: :ok, json: 'ok'
+    else
+      render status: :not_found, json: "User ##{params[:id]} does exist"
+    end
   end
 end
