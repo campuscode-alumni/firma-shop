@@ -3,7 +3,6 @@ require 'rails_helper'
 feature 'should create one chat' do
 
     scenario 'create a conversation' do
-      pending
       buyer = create(:user, email: 'fabio@campuscode.com', name: 'Fabio')
       buyer.confirm
       seller = create(:user, name: 'Joao')

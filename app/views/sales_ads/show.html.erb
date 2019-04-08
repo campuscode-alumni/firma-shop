@@ -6,4 +6,13 @@
 <p>Expiração do anúncio: <%=@sales_ad.expiration_time%> dias</p>
 <p><%=@sales_ad.description%></p>
 
-<p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
+<% if @conversation.nil? %>
+  <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
+<% else %>
+  <h2><%= "Conversa com #{@sales_ad.user.name}" %></h2>
+  <%= form_for [@conversation, @message] do |f| %>
+    <%= f.label :body, 'Mensagem' %>
+    <%= f.text_area :body, size: "60x12" %>
+    <%= f.submit "Enviar" %>
+  <% end %>
+<% end %>
