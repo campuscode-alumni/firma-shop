@@ -4,5 +4,4 @@ class ConversationsController < ApplicationController
     Conversation.create(sales_ad: sales_ad, buyer: current_user)
     redirect_to sales_ad
   end
-
 end

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   belongs_to :company
 
   before_validation :set_company
+  has_many :conversations, dependent: :destroy
 
   validates :name, presence: true
 

@@ -18,10 +18,9 @@ class SalesAdsController < ApplicationController
 
   def show
     @sales_ad = ProductAd.find(params[:id])
-    @conversation = Conversation.find_by(sales_ad: @sales_ad, buyer: current_user)
-    if @conversation
-      @message = @conversation.messages.build
-    end
+    @conversation = Conversation.find_by(sales_ad: @sales_ad,
+                                         buyer: current_user)
+    @message = @conversation.messages.build if @conversation
   end
 
   private
