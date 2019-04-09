@@ -6,6 +6,7 @@ class SalesAdsController < ApplicationController
   def create
     @sales_ad = SalesAd.new(sales_ad_params)
     @sales_ad.user = current_user
+    # @sales_ad.company = current_user.company
 
     if @sales_ad.save
       flash[:notice] = 'Anúncio Criado!'
