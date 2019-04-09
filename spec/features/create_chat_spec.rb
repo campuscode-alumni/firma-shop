@@ -6,7 +6,7 @@ feature 'should create one chat' do
     buyer.confirm
     seller = create(:user, name: 'Joao')
     login_as buyer
-    advertisement = create(:sales_ad, user: seller)
+    advertisement = create(:sales_ad, user: seller, company: seller.company)
 
     visit sales_ad_path(advertisement)
     click_on 'Tenho interesse'
@@ -22,7 +22,7 @@ feature 'should create one chat' do
     buyer = create(:user, email: 'fabio@campuscode.com', name: 'Fabio')
     buyer.confirm
     seller = create(:user, name: 'Joao')
-    advertisement = create(:sales_ad, user: seller)
+    advertisement = create(:sales_ad, user: seller, company: seller.company)
 
     login_as buyer
     visit sales_ad_path(advertisement)
@@ -38,7 +38,7 @@ feature 'should create one chat' do
     buyer = create(:user, email: 'fabio@campuscode.com', name: 'Fabio')
     buyer.confirm
     seller = create(:user, name: 'Joao')
-    advertisement = create(:sales_ad, user: seller)
+    advertisement = create(:sales_ad, user: seller, company: seller.company)
 
     login_as buyer
     visit sales_ad_path(advertisement)
