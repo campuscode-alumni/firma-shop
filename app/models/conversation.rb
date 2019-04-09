@@ -9,8 +9,6 @@ class Conversation < ApplicationRecord
   end
 
   def sent_messages
-    messages.select do |m| 
-      m.persisted?
-    end
+    messages.select(&:persisted?)
   end
 end
