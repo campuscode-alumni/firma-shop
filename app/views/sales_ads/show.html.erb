@@ -11,8 +11,10 @@
 <% else %>
   <h2><%= "Conversa com #{@sales_ad.user.name}" %></h2>
   <% @conversation.sent_messages.each do |m| %>
-    <p><%= m.body %></p>
-    <p><%= "Conversa enviada por: #{m.user.name}" %></p>
+    <div class="message">
+      <p><%= m.body %></p>
+      <p><%= "Conversa enviada por: #{m.user.name}" %></p>
+    </div>
   <% end %>%>
   <%= form_for [@conversation, @message] do |f| %>
     <%= f.label :body, 'Mensagem' %>
