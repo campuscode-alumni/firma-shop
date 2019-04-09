@@ -5,6 +5,9 @@
 <p>Garantia: <%= @sales_ad.warranty? ? 'Sim': 'Não' %></p>
 <p>Expiração do anúncio: <%=@sales_ad.expiration_time%> dias</p>
 <p><%=@sales_ad.description%></p>
+<% @sales_ad.photos.each do |photo| %>
+  <%= image_tag photo %>
+<% end %>
 
 <% if @conversation.nil? %>
   <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
@@ -13,9 +16,9 @@
   <% @conversation.sent_messages.each do |m| %>
     <div class="message">
       <p><%= m.body %></p>
-      <p><%= "Conversa enviada por: #{m.user.name}" %></p>
+      <p><%= "Mensagem enviada por: #{m.user.name}" %></p>
     </div>
-  <% end %>%>
+  <% end %>
   <%= form_for [@conversation, @message] do |f| %>
     <%= f.label :body, 'Mensagem' %>
     <%= f.text_area :body, size: "60x12" %>
