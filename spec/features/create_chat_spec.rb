@@ -7,7 +7,7 @@ feature 'should create one chat' do
       buyer.confirm
       seller = create(:user, name: 'Joao')
       login_as buyer
-      advertisement = create(:sales_ad, user: seller)
+      advertisement = create(:sales_ad, user: seller, company: seller.company)
 
       visit sales_ad_path(advertisement)
       click_on 'Tenho interesse'
