@@ -1,20 +1,21 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="login-form">
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <h2 class="text-center">Reenviar email de confirmação</h2>
+    <%= f.error_notification %>
+    <%= f.full_error :confirmation_token %>
+    <div class="form-group">
+      <%= f.input :email,
                 required: true,
                 autofocus: true,
                 value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email),
-                input_html: { autocomplete: "email" } %>
-  </div>
+                input_html: { autocomplete: "email" }, placeholder: 'email', label: false %>
+    </div>
+    <div class="form-group">
+      <%= f.button :submit, 'Reenviar', class: 'btn btn-primary login-btn btn-block' %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+    <div class="or-seperator"></div>
+    <br>
+    <p class="text-center text-muted small"><%= render "users/shared/links" %></p>
+  <% end %>
+</div>

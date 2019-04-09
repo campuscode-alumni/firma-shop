@@ -1,18 +1,19 @@
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="login-form">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <h2 class="text-center">Esqueci minha senha</h2>
+    <%= f.error_notification %>
+    <div class="form-group">
+      <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
-  </div>
+                input_html: { autocomplete: "email" }, placeholder: 'email', label: false %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+    <div class="form-group">
+      <%= f.button :submit, 'Resetar senha', class: 'btn btn-primary login-btn btn-block' %>
+    </div>
+    <div class="or-seperator"></div>
+    <br>
+    <p class="text-center text-muted small"><%= render "users/shared/links" %></p>
+  <% end %>
+</div>

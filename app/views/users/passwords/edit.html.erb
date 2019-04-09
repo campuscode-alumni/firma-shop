@@ -1,24 +1,23 @@
-<h2>Change your password</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password,
-                label: "New password",
+<div class="login-form">
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <h2 class="text-center">Alterar Senha</h2>
+    <%= f.error_notification %>
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
+    <div class="form-group">
+      <%= f.input :password,
                 required: true,
-                autofocus: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+                input_html: { autocomplete: "new-password" }, placeholder: 'Nova Senha', label: false %>
+      <em class="text-muted small"><%= "#{@minimum_password_length} caracteres no minimo" if @minimum_password_length %></em>
+    </div>
+    <div class="form-group">
+      <%= f.input :password_confirmation, required: true, placeholder: 'Confirme sua senha', label: false %>
+    </div>
+    <div class="form-group">
+      <%= f.button :submit, "Alterar senha", class: 'btn btn-primary login-btn btn-block' %>
+    </div>
+    <div class="or-seperator"></div>
+    <br>
+    <p class="text-center text-muted small"><%= render "users/shared/links" %></p>
+  <% end %>
+</div>
