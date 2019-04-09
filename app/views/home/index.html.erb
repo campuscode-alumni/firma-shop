@@ -1,1 +1,12 @@
-<h1> Página em Branco </h1>
+<h1> <%= current_user.company.name %> </h1>
+
+<% current_user.company.sales_ads.each do |ad| %>
+  <div>
+    <% if ad.photos.attached? %>
+      <%= image_tag ad.photos.first %>
+    <% else %>
+      <%= image_tag 'default_ad.png' %>
+    <% end %>
+    <%= link_to ad.title, ad %> <br>
+  </div>
+<% end %>

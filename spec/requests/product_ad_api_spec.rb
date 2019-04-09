@@ -6,8 +6,8 @@ RSpec.describe 'Product Ads API', type: :request do
       user1 = create(:user, email: 'user1@email.com')
       user2 = create(:user, email: 'user2@email.com')
 
-      create(:sales_ad, title: 'Anuncio 1', user: user1)
-      create(:sales_ad, title: 'Anuncio 2', user: user2)
+      create(:sales_ad, title: 'Anuncio 1', user: user1, company: user1.company)
+      create(:sales_ad, title: 'Anuncio 2', user: user2, company: user2.company)
 
       get '/api/v1/product_ads'
 

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
   belongs_to :company
+  has_many :conversations, dependent: :nullify
 
   before_validation :set_company
   has_many :conversations, dependent: :destroy
