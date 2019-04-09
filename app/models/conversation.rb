@@ -7,4 +7,10 @@ class Conversation < ApplicationRecord
   def seller
     sales_ad.user
   end
+
+  def sent_messages
+    messages.select do |m| 
+      m.persisted?
+    end
+  end
 end
