@@ -7,7 +7,7 @@ feature 'should create one chat' do
     seller = create(:user, name: 'Joao')
     login_as buyer
     advertisement = create(:sales_ad, user: seller)
-
+  end
 
   scenario 'create a conversation' do
     buyer = create(:user, email: 'fabio@campuscode.com', name: 'Fabio')
