@@ -1,17 +1,54 @@
- <a id='sales_ad'>Quero vender um produto</a> 
+<h2 id='sales_ad'>Quero vender um produto</h2> 
 
-<%= simple_form_for @sales_ad, html: {id: 'sales_form'} do |f|%>
-  <%= f.input :title %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.input :price, as: :decimal %>
-  <%= f.input :usage_time, collection: 0..60, selected: 0 %>
-  <%= f.input :warranty %>
-  <%= f.input :expiration_time, collection: [[15, '15 Dias'], [30, '30 Dias'], [60, '60 Dias'], [90, '90 Dias']], label_method: :second, value_method: :first, selected: 15 %>
-  <%= f.input :accepted_rule %>
-  <%= f.submit 'Criar Anúncio' %>
-<% end %>
-
+<div class="jumbotron">
+  <%= simple_form_for @sales_ad, html: {id: 'sales_form'} do |f|%>
+    <div class="form-group">
+      <p>
+        <%= f.input :title, placeholder: 'Titulo do anúncio'%>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :description, as: :text, placeholder: 'Descrição do anúncio'%>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :price, as: :decimal %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :usage_time, collection: 0..60, selected: 0 %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :warranty %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :expiration_time, collection: [[15, '15 Dias'], [30, '30 Dias'], [60, '60 Dias'], [90, '90 Dias']], label_method: :second, value_method: :first, selected: 15 %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.input :accepted_rule %>
+      </p>
+    </div>
+    <div class="form-group">
+      <p>
+        <%= f.submit 'Criar Anúncio', class: 'btn btn-info btn-lg btn-block' %>
+      </p>
+    </div>
+  <% end %>
+</div>
 
  <script>
   $('#sales_ad').click(function(){
