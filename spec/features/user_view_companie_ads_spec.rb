@@ -4,18 +4,13 @@ feature 'user view company page' do
   scenario 'and view ads from your company' do
     company = create(:company, name: 'Google', domain: 'google.com')
 
-    user = create(
-      :user, email: "fabio@#{company.domain}"
-    )
+    user = create(:user, email: "fabio@#{company.domain}")
 
-    first_ad = create(
-      :sales_ad, user: user, title: 'iPhone 5',
-      company: company
-    )
-    second_ad = create(
-      :sales_ad, user: user, title: 'iPhone 5',
-      company: company
-    )
+    first_ad = create(:sales_ad, user: user, title: 'iPhone 5',
+                                 company: company)
+
+    second_ad = create(:sales_ad, user: user, title: 'iPhone 5',
+                                  company: company)
 
     user.confirm
     login_as user
@@ -38,14 +33,12 @@ feature 'user view company page' do
       :user, email: "luis@#{second_company.domain}"
     )
 
-    ad_from_first_company = create(
-      :sales_ad, user: user_from_first_company, title: 'iPhone 5',
-      company: first_company
-    )
-    ad_from_second_company = create(
-      :sales_ad, user: user_from_second_company, title: 'Computador',
-      company: second_company
-    )
+    ad_from_first_company = create(:sales_ad, user: user_from_first_company,
+                                              title: 'iPhone 5',
+                                              company: first_company)
+    ad_from_second_company = create(:sales_ad, user: user_from_second_company,
+                                               title: 'Computador',
+                                               company: second_company)
 
     user_from_first_company.confirm
     login_as user_from_first_company
@@ -63,10 +56,8 @@ feature 'user view company page' do
       :user, email: "fabio@#{company.domain}"
     )
 
-    sample_ad = create(
-      :sales_ad, user: user, title: 'iPhone 5',
-      company: company
-    )
+    sample_ad = create(:sales_ad, user: user, title: 'iPhone 5',
+                                  company: company)
 
     user.confirm
     login_as user
