@@ -1,4 +1,6 @@
-class HomeController < ApplicationController
+class HomeController < SalesAdsController
   before_action :authenticate_user!
-  def index() end
+  def index
+    @sales_ads = current_user.company.sales_ads.all
+  end
 end

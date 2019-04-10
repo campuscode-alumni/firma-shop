@@ -24,6 +24,12 @@ class SalesAdsController < ApplicationController
     @message = @conversation.messages.build if @conversation
   end
 
+  def search
+    @sales_ads = current_user.company.sales_ads.where(
+      'title LIKE :query OR description LIKE :query', query: "%#{params[:q]}%"
+    )
+  end
+
   private
 
   def sales_ad_params

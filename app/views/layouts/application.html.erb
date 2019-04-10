@@ -29,6 +29,11 @@
                 </li>
               <% end %>
             </ul>
+            <%= form_tag(search_sales_ads_path, method: "get") do %>
+              <%= label_tag(:q, "Buscar") %>
+              <%= text_field_tag(:q) %>
+              <%= submit_tag("Buscar") %>
+            <% end %>
             <!--<form class="form-inline my-2 my-md-0" wfd-id="34">
               <input class="form-control" type="text" placeholder="Search" aria-label="Search" kl_vkbd_parsed="true" wfd-id="93">
             </form>-->

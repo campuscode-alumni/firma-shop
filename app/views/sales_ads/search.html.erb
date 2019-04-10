@@ -1,0 +1,11 @@
+<h1> <%= current_user.company.name %> </h1>
+
+<% if @sales_ads.any? %>
+	<p><%=  @sales_ads.count %></p>
+  <% @sales_ads.each do |ad| %>
+    <h2><%= link_to ad.title, ad %></h2>
+    <p><%= ad.description %></p>
+  <% end %>
+<% else %>
+  <p>Ops.. Nenhum resultado encontrado</p>
+<% end %>
