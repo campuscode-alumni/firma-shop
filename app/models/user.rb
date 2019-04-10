@@ -14,6 +14,8 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def active?
+    return false unless expiration_date
+
     expiration_date > Time.zone.now
   end
 

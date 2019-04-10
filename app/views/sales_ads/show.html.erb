@@ -1,4 +1,6 @@
 <h1><%=@sales_ad.title%></h1>
+<span><%= t(@sales_ad.ad_state) %></span>
+
 <p><%=@sales_ad.description%></p>
 <p><%=number_to_currency(@sales_ad.price)%></p>
 <p><%=@sales_ad.usage_time%> meses</p>
@@ -9,7 +11,10 @@
   <%= image_tag photo %>
 <% end %>
 
-<% if @sales_ad.user != current_user %>
+<% if @sales_ad.active? %>
+  <% if @sales_ad.user == current_user %>
+    <%= link_to 'Inativar este anuncio', inactive_sales_ad_path(@sales_ad), method: :put %>
+  <% end %>
   <% if @conversation.nil?%>
     <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad),
                                       method: :post %></p>

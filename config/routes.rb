@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :sales_ads, only: [:new, :show, :create] do
     member do
       post 'conversation', to: 'conversations#create'
+      put 'inactive', to: 'sales_ads#inactive'
     end
   end
 
