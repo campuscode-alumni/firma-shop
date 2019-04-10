@@ -1,4 +1,10 @@
 <h1><%=@sales_ad.title%></h1>
+<span><%= t(@sales_ad.ad_state) %></span>
+
+<% if @sales_ad.active? %>
+  <%= link_to 'Inativar este anuncio', inactive_sales_ad_path(@sales_ad), method: :put %>
+<% end %>
+
 <p><%=@sales_ad.description%></p>
 <p><%=number_to_currency(@sales_ad.price)%></p>
 <p><%=@sales_ad.usage_time%> meses</p>

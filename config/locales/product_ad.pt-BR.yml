@@ -1,4 +1,6 @@
 pt-BR:
+  active: Ativo
+  inactive: Inativo
   activerecord:
     models:
       product_ad: Anúncios

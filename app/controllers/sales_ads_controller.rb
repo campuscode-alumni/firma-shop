@@ -24,11 +24,17 @@ class SalesAdsController < ApplicationController
     @message = @conversation.messages.build if @conversation
   end
 
+  def inactive
+    @sales_ad = SalesAd.find(params[:id])
+    @sales_ad.inactive!
+    redirect_to @sales_ad
+  end
+
   private
 
   def sales_ad_params
     params.require(:sales_ad).permit(:title, :description, :price, :usage_time,
                                      :warranty, :expiration_time,
-                                     :accepted_rule, :photos)
+                                     :accepted_rule, :photos, :ad_state)
   end
 end
