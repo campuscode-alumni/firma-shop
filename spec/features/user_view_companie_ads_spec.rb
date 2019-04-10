@@ -66,4 +66,19 @@ feature 'user view company page' do
 
     expect(current_path).to eq(sales_ad_path(sample_ad))
   end
+  scenario 'does not view inactive ads' do
+    company = create(:company, name: 'Firma Shop', domain: 'firmashop.com')
+    seller = create(:user, name: 'Seller', email: 'seller@firmashop.com',
+                           company: company)
+    seller.confirm
+    sale_ads = create(:sales_ad, user: seller, ad_state: 1, company: company)
+    user = create(:user, name: 'Buyer', email: 'buyer@firmashop.com',
+                         company: company)
+    user.confirm
+
+    login_as user
+    visit root_path
+
+    expect(page).not_to have_css('a', text: sale_ads.title)
+  end
 end
