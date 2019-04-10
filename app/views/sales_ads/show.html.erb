@@ -1,10 +1,6 @@
 <h1><%=@sales_ad.title%></h1>
 <span><%= t(@sales_ad.ad_state) %></span>
 
-<% if @sales_ad.active? %>
-  <%= link_to 'Inativar este anuncio', inactive_sales_ad_path(@sales_ad), method: :put %>
-<% end %>
-
 <p><%=@sales_ad.description%></p>
 <p><%=number_to_currency(@sales_ad.price)%></p>
 <p><%=@sales_ad.usage_time%> meses</p>
@@ -12,19 +8,24 @@
 <p>Expiração do anúncio: <%=@sales_ad.expiration_time%> dias</p>
 <p><%=@sales_ad.description%></p>
 
-<% if @conversation.nil? %>
-  <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
-<% else %>
-  <h2><%= "Conversa com #{@sales_ad.user.name}" %></h2>
-  <% @conversation.sent_messages.each do |m| %>
-    <div class="message">
-      <p><%= m.body %></p>
-      <p><%= "Conversa enviada por: #{m.user.name}" %></p>
-    </div>
-  <% end %>%>
-  <%= form_for [@conversation, @message] do |f| %>
-    <%= f.label :body, 'Mensagem' %>
-    <%= f.text_area :body, size: "60x12" %>
-    <%= f.submit "Enviar" %>
+<% if @sales_ad.active? %>
+  <% if @sales_ad.user == current_user %>
+    <%= link_to 'Inativar este anuncio', inactive_sales_ad_path(@sales_ad), method: :put %>
+  <% end %>
+  <% if @conversation.nil? %>
+    <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
+  <% else %>
+    <h2><%= "Conversa com #{@sales_ad.user.name}" %></h2>
+    <% @conversation.sent_messages.each do |m| %>
+      <div class="message">
+        <p><%= m.body %></p>
+        <p><%= "Conversa enviada por: #{m.user.name}" %></p>
+      </div>
+    <% end %>%>
+    <%= form_for [@conversation, @message] do |f| %>
+      <%= f.label :body, 'Mensagem' %>
+      <%= f.text_area :body, size: "60x12" %>
+      <%= f.submit "Enviar" %>
+    <% end %>
   <% end %>
 <% end %>
