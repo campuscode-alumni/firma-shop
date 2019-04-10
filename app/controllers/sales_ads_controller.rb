@@ -35,6 +35,6 @@ class SalesAdsController < ApplicationController
   def sales_ad_params
     params.require(:sales_ad).permit(:title, :description, :price, :usage_time,
                                      :warranty, :expiration_time,
-                                     :accepted_rule, :photos, :ad_state)
+                                     :accepted_rule, :photos)
   end
 end
