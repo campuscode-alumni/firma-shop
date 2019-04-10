@@ -1,12 +1,15 @@
 <% @conversation.sent_messages.each do |message| %>
-
-    <li class="list-group-item"><strong><%= message.user.name %></strong> diz:</li>
-    <li class="list-group-item"><%= message.body %></li>
-
+    <% if message.user == current_user %>
+      <li class="list-group-item text-left"><strong><%= message.user.name %></strong> diz:<br><%= message.body %></li> 
+    <% else %>
+      <li class="list-group-item text-right"><strong><%= message.user.name %></strong> diz:<br><%= message.body %></li> 
+    <% end %>
 <% end %>
-<%= form_for [@conversation, @message] do |f| %>
-  <%= f.label :body, 'Mensagem' %>
-  <%= f.text_field :body, {size: "60x12", class: "form-control", type: 'text'} %>
-  <%= f.submit "Enviar" %>
-<% end %>
+<li class="list-group-item">
+  <%= form_for [@conversation, @message] do |f| %>
+    <%= f.text_field :body, {size: "60x12", class: "form-control", type: 'text'} %>
+    <br>
+    <%= f.submit "Enviar", class: 'btn btn-primary' %>
+  <% end %>
+</li>
 

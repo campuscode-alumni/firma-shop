@@ -1,2 +1,4 @@
-<h1> <%= "#{@conversation.buyer.name} - #{@conversation.sales_ad.title}" %> </h1>
+<h1><%= link_to "#{@conversation.buyer.name} - #{@conversation.sales_ad.title}",
+        @conversation.sales_ad %></h1>
+<%= render @conversation.sales_ad %>
 <%= render partial: 'conversation' %>

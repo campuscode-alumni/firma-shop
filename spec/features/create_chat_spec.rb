@@ -13,7 +13,6 @@ feature 'should create one chat' do
 
     expect(Conversation.count).to eq 1
     expect(page).to have_content 'Conversa com Joao'
-    expect(page).to have_field 'Mensagem'
     expect(page).to have_button 'Enviar'
     expect(page).to_not have_link 'Tenho interesse'
   end
@@ -27,7 +26,7 @@ feature 'should create one chat' do
     login_as buyer
     visit sales_ad_path(advertisement)
     click_on 'Tenho interesse'
-    fill_in 'Mensagem', with: 'Olá João o valor pode ser parcelado?'
+    fill_in 'message[body]', with: 'Olá João o valor pode ser parcelado?'
     click_on 'Enviar'
 
     expect(page).to have_content('Olá João o valor pode ser parcelado?')
@@ -43,7 +42,7 @@ feature 'should create one chat' do
     login_as buyer
     visit sales_ad_path(advertisement)
     click_on 'Tenho interesse'
-    fill_in 'Mensagem', with: ''
+    fill_in 'message[body]', with: ''
     click_on 'Enviar'
 
     expect(page).to_not have_css('div.message')

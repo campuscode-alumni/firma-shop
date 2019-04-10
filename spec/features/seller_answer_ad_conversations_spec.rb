@@ -56,7 +56,7 @@ feature 'seller answer your ad conversations' do
     login_as seller
 
     visit conversation_path(conversation)
-    fill_in 'Mensagem', with: answer_message
+    fill_in 'message[body]', with: answer_message
     click_on 'Enviar'
 
     expect(conversation.messages.where(user: seller)).to be_present
