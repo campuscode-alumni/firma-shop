@@ -1,0 +1,12 @@
+<% @conversation.sent_messages.each do |message| %>
+
+    <li class="list-group-item"><strong><%= message.user.name %></strong> diz:</li>
+    <li class="list-group-item"><%= message.body %></li>
+
+<% end %>
+<%= form_for [@conversation, @message] do |f| %>
+  <%= f.label :body, 'Mensagem' %>
+  <%= f.text_field :body, {size: "60x12", class: "form-control", type: 'text'} %>
+  <%= f.submit "Enviar" %>
+<% end %>
+

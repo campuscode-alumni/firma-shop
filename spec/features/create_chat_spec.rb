@@ -31,7 +31,7 @@ feature 'should create one chat' do
     click_on 'Enviar'
 
     expect(page).to have_content('Olá João o valor pode ser parcelado?')
-    expect(page).to have_content("Conversa enviada por: #{buyer.name}")
+    expect(page).to have_content("#{buyer.name} diz:")
   end
 
   scenario 'buyer send a message nil' do

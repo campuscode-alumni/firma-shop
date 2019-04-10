@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   before_validation :set_company
   has_many :conversations, dependent: :destroy
+  has_many :sales_ads
 
   validates :name, presence: true
 

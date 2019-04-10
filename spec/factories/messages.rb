@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :message do
-    conversation { nil }
-    user { nil }
-    body { 'MyText' }
+    conversation
+    user
+    body { 'Isso está disponível?' }
   end
 end

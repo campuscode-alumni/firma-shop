@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :conversation do
-    sales_ad { nil }
-    user { nil }
+    sales_ad
   end
 end

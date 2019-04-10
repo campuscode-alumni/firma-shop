@@ -12,16 +12,11 @@
 <% if @conversation.nil? %>
   <p><%= link_to 'Tenho interesse', conversation_sales_ad_path(@sales_ad), method: :post %></p>
 <% else %>
-  <h2><%= "Conversa com #{@sales_ad.user.name}" %></h2>
-  <% @conversation.sent_messages.each do |m| %>
-    <div class="message">
-      <p><%= m.body %></p>
-      <p><%= "Mensagem enviada por: #{m.user.name}" %></p>
-    </div>
-  <% end %>
-  <%= form_for [@conversation, @message] do |f| %>
-    <%= f.label :body, 'Mensagem' %>
-    <%= f.text_area :body, size: "60x12" %>
-    <%= f.submit "Enviar" %>
-  <% end %>
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <%= "Conversa com #{@sales_ad.user.name}" %>
+    </li>
+
+    <%= render partial: 'conversations/conversation' %>
+  </ul>
 <% end %>
