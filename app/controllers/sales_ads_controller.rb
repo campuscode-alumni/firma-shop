@@ -25,8 +25,9 @@ class SalesAdsController < ApplicationController
   end
 
   def search
+    @search_term = params[:search][:q]
     @sales_ads = current_user.company.sales_ads.where(
-      'title LIKE :query OR description LIKE :query', query: "%#{params[:q]}%"
+      'title LIKE :query OR description LIKE :query', query: "%#{@search_term}%"
     )
   end
 

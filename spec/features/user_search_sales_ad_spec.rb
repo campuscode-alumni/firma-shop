@@ -17,8 +17,9 @@ feature 'User search ads' do
     fill_in 'Buscar', with: 'iPhone 5'
     click_on 'Buscar'
 
-    expect(page).to have_css('p', text: '1')
-    expect(page).to have_css('h1', text: company.name)
+    expect(page).to have_css('li', text: 'Encontramos 1 resultado ao buscar '\
+                                         'por: iPhone 5')
+    expect(page).to have_css('a', text: company.name)
     expect(page).to have_css('h2', text: sales_ad_a.title)
     expect(page).to_not have_content(sales_ad_b.title)
   end
@@ -38,7 +39,8 @@ feature 'User search ads' do
     fill_in 'Buscar', with: 'Incrível'
     click_on 'Buscar'
 
-    expect(page).to have_css('p', text: '2')
+    expect(page).to have_css('li', text: 'Encontramos 2 resultados ao buscar '\
+                                         'por: Incrível')
     expect(page).to have_css('h2', text: sales_ad_a.title)
     expect(page).to have_css('h2', text: sales_ad_b.title)
   end
@@ -57,6 +59,6 @@ feature 'User search ads' do
     fill_in 'Buscar', with: 'Notebook'
     click_on 'Buscar'
 
-    expect(page).to have_css('p', text: 'Ops.. Nenhum resultado encontrado')
+    expect(page).to have_css('li', text: 'Ops.. Nenhum resultado encontrado')
   end
 end

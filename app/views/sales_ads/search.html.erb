@@ -1,11 +1,19 @@
-<h1> <%= current_user.company.name %> </h1>
-
 <% if @sales_ads.any? %>
-	<p><%=  @sales_ads.count %></p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%=  t ".search_count", count: @sales_ads.count, search_term: @search_term %>
+      </li>
+    </ol>
+  </nav>
   <% @sales_ads.each do |ad| %>
     <h2><%= link_to ad.title, ad %></h2>
     <p><%= ad.description %></p>
   <% end %>
 <% else %>
-  <p>Ops.. Nenhum resultado encontrado</p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Ops.. Nenhum resultado encontrado</li>
+    </ol>
+  </nav>
 <% end %>
