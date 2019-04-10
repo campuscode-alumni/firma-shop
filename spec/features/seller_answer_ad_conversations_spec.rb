@@ -6,7 +6,7 @@ feature 'seller answer your ad conversations' do
     buyer = create(:user, email: 'ricardo@campuscode.com', name: 'Ricardo')
     sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
                                   company: seller.company)
-    conversation = create(:conversation, buyer: buyer, sales_ad: sample_ad)
+    create(:conversation, buyer: buyer, sales_ad: sample_ad)
 
     seller.confirm
     login_as seller
@@ -23,11 +23,11 @@ feature 'seller answer your ad conversations' do
     sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
                                   company: seller.company)
     conversation = create(:conversation, buyer: buyer, sales_ad: sample_ad)
-    first_message = create(:message, user: buyer, conversation: conversation,
-                                     body: 'Ainda está disponível?')
-    second_message = create(:message, user: buyer, conversation: conversation,
-                                     body: 'Preciso Urgente!')
-    
+    create(:message, user: buyer, conversation: conversation,
+                     body: 'Ainda está disponível?')
+    create(:message, user: buyer, conversation: conversation,
+                     body: 'Preciso Urgente!')
+
     seller.confirm
     login_as seller
     visit conversations_path
@@ -46,11 +46,11 @@ feature 'seller answer your ad conversations' do
     sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
                                   company: seller.company)
     conversation = create(:conversation, buyer: buyer, sales_ad: sample_ad)
-    first_message = create(:message, user: buyer, conversation: conversation,
-                                     body: 'Ainda está disponível?')
-    second_message = create(:message, user: buyer, conversation: conversation,
-                                     body: 'Preciso Urgente!')
-    
+    create(:message, user: buyer, conversation: conversation,
+                     body: 'Ainda está disponível?')
+    create(:message, user: buyer, conversation: conversation,
+                     body: 'Preciso Urgente!')
+
     seller.confirm
     answer_message = 'Já foi vendido.'
     login_as seller
@@ -67,12 +67,12 @@ feature 'seller answer your ad conversations' do
     seller = create(:user, email: 'fabio@campuscode.com', name: 'Fábio')
     sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
                                   company: seller.company)
-    
+
     seller.confirm
     login_as seller
 
     visit sales_ad_path(sample_ad)
-    
+
     expect(page).not_to have_content 'Tenho interesse'
   end
 end
