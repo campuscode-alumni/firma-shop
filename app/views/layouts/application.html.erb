@@ -12,31 +12,30 @@
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container" wfd-id="32">
+        <div class="container">
           <a class="navbar-brand" href="/">FirmaShop</a>
-          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation" wfd-id="103">
-            <span class="navbar-toggler-icon" wfd-id="42"></span>
+          <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div class="navbar-collapse collapse" id="navbarsExample07" style="" wfd-id="33">
-            <ul class="navbar-nav ml-auto" wfd-id="35">
-              <% if user_signed_in? %>
-                <li class="nav-item active" wfd-id="40">
+          <div class="navbar-collapse collapse" id="navbarsExample07">
+            <% if user_signed_in? %>
+              <div class="form-inline mr-auto">
+                <%= form_tag(search_sales_ads_path, method: "get") do %>
+                  <%= label_tag(:q, "Buscar") %>
+                  <%= text_field_tag(:q) %>
+                  <%= submit_tag("Buscar") %>
+                <% end %>  
+              </div>
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
                   <%= link_to 'Inserir Anúncio', new_sales_ad_path, class: 'nav-link btn btn-info', role: 'button' %>
                 </li>
-                <li class="nav-item" wfd-id="39">
+                <li class="nav-item">
                   <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
                 </li>
-              <% end %>
-            </ul>
-            <%= form_tag(search_sales_ads_path, method: "get") do %>
-              <%= label_tag(:q, "Buscar") %>
-              <%= text_field_tag(:q) %>
-              <%= submit_tag("Buscar") %>
+              </ul>
             <% end %>
-            <!--<form class="form-inline my-2 my-md-0" wfd-id="34">
-              <input class="form-control" type="text" placeholder="Search" aria-label="Search" kl_vkbd_parsed="true" wfd-id="93">
-            </form>-->
           </div>
         </div>
       </nav>
