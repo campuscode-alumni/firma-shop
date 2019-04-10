@@ -39,4 +39,40 @@ feature 'seller answer your ad conversations' do
     expect(page).to have_content 'Preciso Urgente!'
     expect(page).to have_button 'Enviar'
   end
+
+  scenario 'answer one conversation' do
+    seller = create(:user, email: 'fabio@campuscode.com', name: 'Fábio')
+    buyer = create(:user, email: 'ricardo@campuscode.com', name: 'Ricardo')
+    sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
+                                  company: seller.company)
+    conversation = create(:conversation, buyer: buyer, sales_ad: sample_ad)
+    first_message = create(:message, user: buyer, conversation: conversation,
+                                     body: 'Ainda está disponível?')
+    second_message = create(:message, user: buyer, conversation: conversation,
+                                     body: 'Preciso Urgente!')
+    
+    seller.confirm
+    answer_message = 'Já foi vendido.'
+    login_as seller
+
+    visit conversation_path(conversation)
+    fill_in 'Mensagem', with: answer_message
+    click_on 'Enviar'
+
+    expect(conversation.messages.where(user: seller)).to be_present
+    expect(conversation.messages.last.body).to eq(answer_message)
+  end
+
+  scenario 'dont sent messages for your ads' do
+    seller = create(:user, email: 'fabio@campuscode.com', name: 'Fábio')
+    sample_ad = create(:sales_ad, user: seller, title: 'iPhone 5',
+                                  company: seller.company)
+    
+    seller.confirm
+    login_as seller
+
+    visit sales_ad_path(sample_ad)
+    
+    expect(page).not_to have_content 'Tenho interesse'
+  end
 end
