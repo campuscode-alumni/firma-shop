@@ -1,6 +1,8 @@
 <% @conversations.each do |conversation| %>
+<% user_name = conversation.sales_ad.user.name %>
+<% user_name = conversation.buyer.name if conversation.sales_ad.user == current_user %>
   <div>
-    <%= "#{conversation.buyer.name} - #{conversation.sales_ad.title}" %>
+    <%= "#{user_name} - #{conversation.sales_ad.title}" %>
     <%= link_to 'Visualizar conversa', conversation %>
   </div>
 <% end %>
