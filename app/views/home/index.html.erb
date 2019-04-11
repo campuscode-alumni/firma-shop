@@ -1,10 +1,16 @@
+<div class="row">
 <% @sales_ads.each do |ad| %>
-  <div>
+  <div class="card ml-3 mb-3" style="width: 22rem;">
     <% if ad.photos.attached? %>
-      <%= image_tag ad.photos.first %>
+      <%= image_tag ad.photos.first, class: 'card-img-top' %>
     <% else %>
-      <%= image_tag 'default_ad.png' %>
+      <%= image_tag 'default_ad.png', class: 'card-img-top' %>
     <% end %>
-    <%= link_to ad.title, ad %> <br>
+    <div class="card-body">
+      <h5 class="card-title text-center"><%= ad.title %></h5>
+    </div>
+    <div class="card-footer">
+      <%= link_to 'Ver detalhes', ad, class: 'text-center' %>
+    </div>
   </div>
 <% end %>

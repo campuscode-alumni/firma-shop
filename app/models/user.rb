@@ -34,13 +34,15 @@ class User < ApplicationRecord
   end
 
   def find_or_create_company
-    # https://api.rubyonrails.org/classes/ActiveRecord/Relation.html#method-i-find_or_create_by
-    company = Company.find_by(domain: user_domain)
-    company = Company.create(domain: user_domain) if company.nil?
-    company
+    Company.create_with(name: company_name)
+           .find_or_create_by(domain: user_domain)
   end
 
   def user_domain
     email.split('@').last
+  end
+
+  def company_name
+    user_domain.split('.').first.capitalize
   end
 end

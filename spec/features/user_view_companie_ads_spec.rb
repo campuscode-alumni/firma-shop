@@ -55,7 +55,7 @@ feature 'user view company page' do
 
     login_as user
     visit root_path
-    click_on sample_ad.title
+    click_on 'Ver detalhes'
 
     expect(current_path).to eq(sales_ad_path(sample_ad))
   end
