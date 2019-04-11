@@ -6,7 +6,9 @@ class ConversationsController < ApplicationController
   end
 
   def index
-    @conversations = Conversation.where(sales_ad: current_user.sales_ads)
+    @conversations = Conversation.where(
+      buyer: current_user
+    ).or(Conversation.where(sales_ad: current_user.sales_ads))
   end
 
   def show
