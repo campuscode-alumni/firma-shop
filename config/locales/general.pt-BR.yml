@@ -118,3 +118,8 @@ pt-BR:
       not_saved:
         one: 'Não foi possível salvar %{resource}: 1 erro'
         other: 'Não foi possível salvar %{resource}: %{count} erros.'
+  sales_ads:
+    search:
+      search_count:
+        one: "Encontramos %{count} resultado ao buscar por: %{search_term}"
+        other: "Encontramos %{count} resultados ao buscar por: %{search_term}"
