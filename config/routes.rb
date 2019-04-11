@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     get 'search', on: :collection
     member do
       post 'conversation', to: 'conversations#create'
+      put 'inactive', to: 'sales_ads#inactive'
     end
   end
 
-  resources :conversations, only: [:show] do
+  resources :conversations, only: [:show, :index] do
     resources :messages, only: [:create]
   end
 
