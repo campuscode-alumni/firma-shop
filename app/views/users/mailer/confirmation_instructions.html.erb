@@ -1,5 +1,115 @@
-<p>Welcome <%= @email %>!</p>
+<!--<p>Welcome <%#= @email %>!</p>
 
 <p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<p><%#= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>-->
+
+<table border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:630px;padding:0 10px;border:1px solid #efefef;">
+    <tr>
+      <td align="left" valign="top">
+        <!--[if (gte mso 9)|(IE)]>
+              <table border="0" cellpadding="0" align="center" cellspacing="0" width="600" style="width:600px;">
+                  <tr>
+                      <td align="left" valign="top">
+              <![endif]-->
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+          <tr>
+            <td bgcolor="#fff">
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="3%" height="10"></td>
+                  <td width="94%"></td>
+                  <td width="3%"></td>
+                </tr>
+                <tr>
+                  <td width="3%">&nbsp;</td>
+                  <td width="94%" align="center"><a href="http://localhost:3000" target="_blank"><img src="http://localhost:3000/assets/logo-firma-shop1.svg" alt="FirmaShop" border="0" align="absmiddle" width="40%" /></a></td>
+                  <td width="3%">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td width="3%" height="10"></td>
+                  <td width="94%"></td>
+                  <td width="3%"></td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center">
+              <tr>
+                <td valign="middle" style="padding: 7px 0px; background-color: #343a40; margin: 0px; color: #ffffff; font-family: calibri, helvetica, sans-serif; font-weight: normal; font-size: 26px; text-align: center;">Confirmação de Cadastro</td>
+              </tr>
+            </table>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#fff">
+                <tr>
+                  <td width="3%">&nbsp;</td>
+                  <td>
+                    <p style="line-height:25px;">
+                      <font face="Arial, Helvetica, sans-serif" color="#676767" style="font-size:20px"><strong>Bem-vindo <%= @user.name %>!</strong></font>
+                    </p>
+                    <p style="line-height:25px;">
+                      <font face="Arial, Helvetica, sans-serif" color="#676767" style="font-size:14px">Obrigado por se cadastrar em nosso site!</font></br>
+                      <font face="Arial, Helvetica, sans-serif" color="#676767" style="font-size:14px">Seu cadastro está pendente de aprovação.</font></br>
+                      <font face="Arial, Helvetica, sans-serif" color="#676767" style="font-size:14px">Por favor clique no link abaixo para confirmar o seu e-mail.</font>
+                    </p>
+                  </td>
+                  <td width="3%">&nbsp;</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="3%"></td>
+                  <td align="center">
+                    <%= link_to 'Ativar cadastro agora', confirmation_url(@resource, confirmation_token: @token), style: "font-family: calibri, helvetica, sans-serif;color:#ffffff;font-size: 18px;background-color:#007bff;padding:12px 10%;text-decoration:none;" %>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%" cellspacing="0" cellpadding="0" border="0" align="center" style="margin-top: 10px;">
+                  <tbody>
+                      <tr>
+                          <td valign="middle" style="width: 70px; height: 70px; background-image: none; background-attachment: scroll; background-color: #343a40; text-align: center; background-position: 0% 0%; background-repeat: repeat;">
+                          <img src="http://localhost:3000/assets/ico_email_cadastro.png" alt="email" />
+                          </td>
+                          <td style="background-image: none; background-attachment: scroll; background-color: #efefef; border-left: 4px solid #ffffff; padding: 0px 8px; background-position: 0% 0%; background-repeat: repeat;">
+                          <p style="line-height:25px;">
+                            <font face="Arial, Helvetica, sans-serif" color="#676767" style="font-size:14px">Qualquer dúvida ou informação, entre em contato conosco através do e-mail: </font><br />
+                            <a style="font-size: 18px; font-family: calibri, helvetica, sans-serif; font-weight: bold; text-decoration: underline; color: #676767;" href="mailto:contato@firmashop.com.br" target="blank">contato@firmashop.com.br</a>
+                          </p>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+        <!--[if (gte mso 9)|(IE)]>
+                      </td>
+                  </tr>
+              </table>
+              <![endif]-->
+      </td>
+    </tr>
+  </table>
