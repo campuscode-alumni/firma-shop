@@ -1,4 +1,4 @@
-<h2 id='sales_ad'>Quero vender um produto</h2> 
+<h2 id='sales_ad'>Quero vender um produto</h2>
 
 <div class="jumbotron">
   <%= simple_form_for @sales_ad, html: {id: 'sales_form'} do |f|%>
@@ -14,44 +14,51 @@
     </div>
     <div class="form-group">
       <p>
-        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'custom-file-input' },
+        label_html: { class: 'custom-file-label' }, wrapper_html: { class: 'custom-file' } %>
       </p>
     </div>
     <div class="form-group">
-      <p>
-        <%= f.input :price, as: :decimal %>
-      </p>
+      <div class="input-group-prepend">
+        <div class="input-group-text">R$</div>
+        <p>
+        <%= f.input :price, as: :decimal, input_html: { value: (number_with_precision f.object.price || 0, precision: 2), step: 0.01 } %>
+        </p>
+      </div>
     </div>
-    <div class="form-group">
-      <p>
+    <div class="form-group row">
+      <label for="sales_ad_usage_time" class="col-sm-2 mb-0 d-flex align-items-center">Tempo de Uso</label>
+      <div class="col-sm-9">
         <%= f.input :usage_time, collection: 0..60, selected: 0 %>
-      </p>
+      </div>
+      <label class="col-sm-1 mb-0 d-flex align-items-center">meses</label>
     </div>
     <div class="form-group">
       <p>
-        <%= f.input :warranty %>
+      <%= f.input :warranty %>
       </p>
     </div>
-    <div class="form-group">
-      <p>
+    <div class="form-group row">
+      <label for="sales_ad_expiration_time" class="col-sm-2 mb-0 d-flex align-items-center">Duração do anúncio</label>
+      <div class="col-sm-10">
         <%= f.input :expiration_time, collection: [[15, '15 Dias'], [30, '30 Dias'], [60, '60 Dias'], [90, '90 Dias']], label_method: :second, value_method: :first, selected: 15 %>
+      </div>
+    </div>
+    <div class="form-group">
+      <p>
+      <%= f.input :accepted_rule %>
       </p>
     </div>
     <div class="form-group">
       <p>
-        <%= f.input :accepted_rule %>
-      </p>
-    </div>
-    <div class="form-group">
-      <p>
-        <%= f.submit 'Criar Anúncio', class: 'btn btn-info btn-lg btn-block' %>
+      <%= f.submit 'Criar Anúncio', class: 'btn btn-info btn-lg btn-block' %>
       </p>
     </div>
   <% end %>
 </div>
 
- <script>
+<script>
   $('#sales_ad').click(function(){
     $('#sales_form').removeClass('invisible')
   });
- </script>
+</script>
