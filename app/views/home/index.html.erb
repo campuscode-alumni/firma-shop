@@ -1,6 +1,4 @@
-<h1> <%= current_user.company.name %> </h1>
-
-<% current_user.company.sales_ads.active.each do |ad| %>
+<% @sales_ads.each do |ad| %>
   <div>
     <% if ad.photos.attached? %>
       <%= image_tag ad.photos.first %>

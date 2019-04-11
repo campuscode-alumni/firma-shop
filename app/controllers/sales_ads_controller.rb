@@ -24,6 +24,13 @@ class SalesAdsController < ApplicationController
     @message = @conversation.messages.build if @conversation
   end
 
+  def search
+    @search_term = params[:search][:q]
+    @sales_ads = current_user.company.sales_ads.where(
+      'title LIKE :query OR description LIKE :query', query: "%#{@search_term}%"
+    )
+  end
+
   def inactive
     @sales_ad = SalesAd.find(params[:id])
     @sales_ad.inactive!

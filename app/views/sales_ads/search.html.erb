@@ -1,0 +1,19 @@
+<% if @sales_ads.any? %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <%=  t ".search_count", count: @sales_ads.count, search_term: @search_term %>
+      </li>
+    </ol>
+  </nav>
+  <% @sales_ads.each do |ad| %>
+    <h2><%= link_to ad.title, ad %></h2>
+    <p><%= ad.description %></p>
+  <% end %>
+<% else %>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Ops.. Nenhum resultado encontrado</li>
+    </ol>
+  </nav>
+<% end %>
