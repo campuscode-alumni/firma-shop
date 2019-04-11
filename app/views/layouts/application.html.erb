@@ -17,7 +17,7 @@
             <% if current_user&.company&.name %>
               <a class="navbar-brand" href="/"><%= current_user.company.name %></a>
             <% else %>
-              <a class="navbar-brand" href="/">Firma-Shop</a>
+              <a class="navbar-brand" href="/"><%= image_tag 'logo-firma-shop.svg', height: '40' %></a>
             <% end %>
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbartop" aria-controls="navbartop" aria-expanded="false" aria-label="toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -37,12 +37,14 @@
               <% end %>
               <ul class="navbar-nav ml-auto" wfd-id="35">
                 <% if user_signed_in? %>
-                  <li class="nav-item ml-2 <%= active(conversations_path) %>" wfd-id="41">
-                    <%= link_to 'Minhas Mensagens', conversations_path, class: 'nav-link', role: 'button' %>
-
+                  <li class="nav-item ml-2">
+                    <span class='nav-link'><%= "Olá #{current_user.name} |" %></span>
                   </li>
                   <li class="nav-item" wfd-id="39">
                     <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                  </li>
+                  <li class="nav-item ml-2 <%= active(conversations_path) %>" wfd-id="41">
+                    <%= link_to 'Minhas Mensagens', conversations_path, class: 'nav-link btn btn-outline-info', role: 'button' %>
                   </li>
                   <li class="nav-item active ml-2" wfd-id="40">
                     <%= link_to 'Inserir Anúncio', new_sales_ad_path, class: 'nav-link btn btn-info', role: 'button' %>
