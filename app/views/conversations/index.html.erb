@@ -1,0 +1,6 @@
+<% @conversations.each do |conversation| %>
+  <div>
+    <%= "#{conversation.buyer.name} - #{conversation.sales_ad.title}" %>
+    <%= link_to 'Visualizar conversa', conversation %>
+  </div>
+<% end %>

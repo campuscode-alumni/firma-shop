@@ -1,0 +1,20 @@
+<% if sales_ad.photos.attached? %>
+  <div class="row">
+    <% sales_ad.photos.each do |photo| %>
+      <div class="card mb-3 ml-3" style="width: 18rem;">
+        <%= image_tag photo.variant(resize: '300x'), class: 'img-fluid' %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <%= image_tag 'default_ad.png' %>
+<% end %>
+
+<h1 class="mb-0"><%=sales_ad.title%></h1>
+<span class="badge badge-primary mt-0 mb-3"><%= t(sales_ad.ad_state) %></span>
+
+<p><%=sales_ad.description%></p>
+<p><%=number_to_currency(sales_ad.price)%></p>
+<p>Tempo de uso: <%= sales_ad.usage_time %> meses</p>
+<p>Garantia: <%= sales_ad.warranty? ? 'Sim': 'Não' %></p>
+<p>Expiração do anúncio: <%=sales_ad.expiration_time%> dias</p>

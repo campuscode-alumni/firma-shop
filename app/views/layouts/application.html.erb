@@ -19,21 +19,23 @@
               <span class="navbar-toggler-icon" wfd-id="42"></span>
             </button>
 
-            <div class="navbar-collapse collapse" id="navbarsExample07" style="" wfd-id="33">
-              <ul class="navbar-nav ml-auto" wfd-id="35">
-                <% if user_signed_in? %>
-                  <li class="nav-item active" wfd-id="40">
-                    <%= link_to 'Inserir Anúncio', new_sales_ad_path, class: 'nav-link btn btn-info', role: 'button' %>
-                  </li>
-                  <li class="nav-item" wfd-id="39">
-                    <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-                  </li>
-                <% end %>
-              </ul>
-              <!--<form class="form-inline my-2 my-md-0" wfd-id="34">
-                <input class="form-control" type="text" placeholder="Search" aria-label="Search" kl_vkbd_parsed="true" wfd-id="93">
-                </form>-->
-            </div>
+          <div class="navbar-collapse collapse" id="navbarsExample07" style="" wfd-id="33">
+            <ul class="navbar-nav ml-auto" wfd-id="35">
+              <% if user_signed_in? %>
+                <li class="nav-item ml-2 <%= active(conversations_path) %>" wfd-id="41">
+                  <%= link_to 'Minhas Mensagens', conversations_path, class: 'nav-link', role: 'button' %>
+                </li>
+                <li class="nav-item" wfd-id="39">
+                  <%= link_to 'Sair', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                </li>
+                <li class="nav-item active ml-2" wfd-id="40">
+                  <%= link_to 'Inserir Anúncio', new_sales_ad_path, class: 'nav-link btn btn-info', role: 'button' %>
+                </li>
+              <% end %>
+            </ul>
+            <!--<form class="form-inline my-2 my-md-0" wfd-id="34">
+              <input class="form-control" type="text" placeholder="Search" aria-label="Search" kl_vkbd_parsed="true" wfd-id="93">
+            </form>-->
           </div>
         </nav>
       </header>
